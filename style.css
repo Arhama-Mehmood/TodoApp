@@ -1,0 +1,223 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    /* background-color: black; */
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+.img-text {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 45px;
+    letter-spacing: 9px;
+}
+
+.todo-input {
+    position: absolute;
+    top: 25%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.inp {
+    height: 50px;
+    width: 270%;
+    background-color: hsl(236, 23%, 14%);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.inp:focus {
+    outline: none;
+}
+
+.add-btn {
+    position: absolute;
+    left: 220%;
+    top: 50%;
+    width: 40%;
+    transform: translateY(-50%);
+    height: 35px;
+    background-color: hsl(236, 23%, 25%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.add-btn:hover {
+    background-color: hsl(236, 23%, 35%);
+}
+
+.todoUl {
+    margin-top: 20px;
+    margin-left: 29.5%;
+    background-color: hsl(236, 23%, 14%);
+    width: 36%;
+    height: auto;
+    list-style-type: none;
+
+}
+
+.todoList {
+    position: relative;
+    margin: 20px 20px 0px 10px;
+    border-bottom: 1px solid hsl(237, 10%, 43%);
+    padding: 5px 0px 5px 0px;
+    font-size: 20px;
+    color: white;
+
+
+}
+
+.deletebtn {
+    margin-left: 50%;
+    margin-right: 15px;
+}
+
+.deletebtn,
+.Editbtn {
+    background-color: hsl(236, 23%, 35%);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+
+}
+
+/* Desktop/Large Screens Responsiveness */
+@media only screen and (max-width:1024px) {
+
+    .img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .todo-input {
+        top: 28%;
+    }
+
+    .inp {
+        width: 210%;
+        padding: 5px;
+        height: 50px;
+    }
+
+    .add-btn {
+        left: 165%;
+    }
+}
+
+/* Tablets/Ipads Responsiveness */
+@media only screen and (max-width:768px) {
+
+    .img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .img-text {
+        left: 34%;
+        top: 50%;
+        font-size: 40px;
+
+    }
+
+    .inp {
+        width: 180%;
+        padding: 5px;
+        height: 45px;
+    }
+
+    .todo-input {
+        top: 27%;
+    }
+
+    .add-btn {
+        left: 135%;
+    }
+
+}
+
+
+/* Mobile Responsiveness */
+@media only screen and (max-width:480px) {
+
+    .img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .img-text {
+        font-size: 40px;
+        left: 32%;
+
+    }
+
+    .todo-input {
+        top: 27%;
+    }
+
+    .inp {
+        width: 170%;
+        padding: 5px;
+        height: 45px;
+    }
+
+    .add-btn {
+        left: 125%;
+    }
+}
+
+/* Small Screens Responsiveness */
+@media only screen and (max-width:390px) {
+
+    .img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .img-text {
+        font-size: 35px;
+        left: 32%;
+
+    }
+
+    .todo-input {
+        top: 26%;
+        left: 39%;
+    }
+
+    .inp {
+        width: 130%;
+        padding: 5px;
+        height: 45px;
+    }
+
+    .add-btn {
+        left: 85%;
+    }
+}
