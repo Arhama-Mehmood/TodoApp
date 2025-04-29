@@ -2,9 +2,14 @@
 function addTodo(pre) {
     pre.preventDefault();
 
+    
     var todoInput = document.getElementById("todoInput");
     var ulElement = document.getElementById("items_data");
-
+// Trim check for empty input
+if (todoInput.value.trim() === "") {
+    alert("Input is required!");
+    return; // Stop the function if input is empty
+}
     if (todoInput.value.trim() !== "") {
         var liElement = document.createElement("li");
         liElement.className = "todo-item";
@@ -62,6 +67,8 @@ function addTodo(pre) {
 
 // Start editing
 function startEditing(spanElement, editBtn) {
+    var liElement = editBtn.closest(".todo-item");
+
     var inputBox = document.createElement("input");
     inputBox.type = "text";
     inputBox.value = spanElement.textContent;
