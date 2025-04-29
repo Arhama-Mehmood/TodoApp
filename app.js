@@ -1,64 +1,94 @@
-function addTodo() {
+// Add Todo
+function addTodo(event) {
+    event.preventDefault();
 
     var todoInput = document.getElementById("todoInput");
+    var ulElement = document.getElementById("items_data");
 
-    if (todoInput.value) {
-        var liELement = document.createElement("li");
+    if (todoInput.value.trim() !== "") {
+        var liElement = document.createElement("li");
+        liElement.className = "todo-item";
 
-        var ulElement = document.getElementById("items_data");
+        // Checkbox
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "todo-checkbox";
+        checkbox.onclick = function() {
+            if (checkbox.checked) {
+                spanElement.style.textDecoration = "line-through";
+                spanElement.style.opacity = "0.6";
+            } else {
+                spanElement.style.textDecoration = "none";
+                spanElement.style.opacity = "1";
+            }
+        };
 
-        liELement.setAttribute("class", "todoList");
-        ulElement.setAttribute("class", "todoUl");
+        // Text
+        var spanElement = document.createElement("span");
+        spanElement.textContent = todoInput.value;
+        spanElement.className = "todo-text";
 
-        //   create delete button element with DOM
+        // Edit button
+        var editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+        editBtn.className = "Editbtn";
+        editBtn.onclick = function () {
+            startEditing(spanElement, editBtn);
+        };
 
-        var DelbtnElement = document.createElement("button");
+        // Delete button
+        var deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.className = "deletebtn";
+        deleteBtn.onclick = function () {
+            liElement.remove();
+        };
 
-        var DelbtnText = document.createTextNode("DELETE");
+        // Button container
+        var btnContainer = document.createElement("div");
+        btnContainer.className = "btn-container";
+        btnContainer.appendChild(editBtn);
+        btnContainer.appendChild(deleteBtn);
 
-        DelbtnElement.setAttribute("onclick", "deleteSingleTodo(this)");
+        liElement.appendChild(checkbox);
+        liElement.appendChild(spanElement);
+        liElement.appendChild(btnContainer);
 
-        DelbtnElement.setAttribute("class", "deletebtn");
+        ulElement.appendChild(liElement);
 
-        DelbtnElement.appendChild(DelbtnText);
-
-        //   create Edit button element with DOM
-
-        var EditbtnElement = document.createElement("button");
-
-        var EditbtnText = document.createTextNode("EDIT");
-
-        EditbtnElement.appendChild(EditbtnText);
-
-        EditbtnElement.setAttribute("onclick", "EditSingleTodo(this)");
-
-        EditbtnElement.setAttribute("class", "Editbtn");
-
-        var liText = document.createTextNode(todoInput.value);
-
-        liELement.appendChild(liText);
-        ulElement.appendChild(liELement);
-        liELement.appendChild(DelbtnElement);
-        liELement.appendChild(EditbtnElement);
-        console.log(liELement);
-
-        todoInput.value = "";
-    }}
-//     if (todoInput.value==""){
-//         alert("Enter task first, before pressing Enter!")
-//     }
-    
-// }
-
-// Add event listener to input field for 'Enter' key
-var todoInput = document.getElementById("todoInput");
-
-todoInput.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        addTodo();
+        todoInput.value = ""; // clear input
     }
-});
-
-function deleteSingleTodo(e) {
-    e.parentNode.remove();
 }
+
+// Start editing
+function startEditing(spanElement, editBtn) {
+    var inputBox = document.createElement("input");
+    inputBox.type = "text";
+    inputBox.value = spanElement.textContent;
+    inputBox.className = "edit-input";
+
+    spanElement.replaceWith(inputBox);
+
+    editBtn.textContent = "Update";
+    editBtn.onclick = function () {
+        finishEditing(inputBox, editBtn);
+    };
+}
+
+// Finish editing
+function finishEditing(inputBox, editBtn) {
+    var spanElement = document.createElement("span");
+    spanElement.textContent = inputBox.value;
+    spanElement.className = "todo-text";
+
+    inputBox.replaceWith(spanElement);
+
+    editBtn.textContent = "Edit";
+    editBtn.onclick = function () {
+        startEditing(spanElement, editBtn);
+    };
+}
+
+// Event listener
+var todoForm = document.getElementById("todoForm");
+todoForm.addEventListener("submit", addTodo);
