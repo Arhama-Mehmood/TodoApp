@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: black;
+}
+
 /* Image section */
 .img-container {
   position: relative;
@@ -89,7 +93,6 @@
   align-items: center;
   gap: 10px;
   flex-wrap: nowrap;
-  overflow-x: auto;
 }
 
 .todo-checkbox {
@@ -159,11 +162,11 @@
   }
 
   .todo-item {
-    padding: 4px;
+    padding: 8px;
   }
 
   .todo-checkbox {
-    width: 16px;
+    width: 20px;
     height: 16px;
   }
 
@@ -202,7 +205,7 @@
   }
 
   .todo-checkbox {
-    width: 14px;
+    width: 18px;
     height: 14px;
   }
 
