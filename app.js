@@ -1,6 +1,6 @@
 // Add Todo
-function addTodo(event) {
-    event.preventDefault();
+function addTodo(pre) {
+    pre.preventDefault();
 
     var todoInput = document.getElementById("todoInput");
     var ulElement = document.getElementById("items_data");
@@ -69,7 +69,7 @@ function startEditing(spanElement, editBtn) {
 
     spanElement.replaceWith(inputBox);
 
-    editBtn.textContent = "Update";
+    editBtn.textContent = "Done";
     editBtn.onclick = function () {
         finishEditing(inputBox, editBtn);
     };

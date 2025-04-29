@@ -209,4 +209,16 @@ body {
     height: 14px;
   }
 
+  .edit-input{
+    padding: 0%;
+    margin: 0%;
+  }
+.todo-item{
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+}
 }
