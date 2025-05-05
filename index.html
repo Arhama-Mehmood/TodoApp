@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TodoApp</title>
 
+    <!-- Firebase Link -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Bootstrap (optional) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,20 +21,21 @@
     <div class="img-container">
         <img src="./purble bg.jpg" alt="purple background" class="img">
         <h2 class="img-text">TODO</h2>
-        
+
     </div>
 
     <div class="todo-container">
         <form id="todoForm" class="todo-input">
             <input type="text" placeholder="Create a new todo..." id="todoInput" class="inp">
             <button type="submit" class="add-btn">Add Item</button>
-        </form>
+            <button type="button" class="delete-all-btn" onclick="deleteAllTodos()">Delete All</button>
+          </form>
+          
+        <ul id="items_data"></ul>
 
-        
-            <ul id="items_data"></ul>
-    
     </div>
 
     <script src="app.js"></script>
 </body>
+
 </html>
